@@ -3,6 +3,7 @@ package se.lia.persistence;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Enumeration;
+import java.util.MissingResourceException;
 import java.util.Properties;
 import java.util.ResourceBundle;
 
@@ -18,12 +19,11 @@ import javax.persistence.Persistence;
 public class DBManager {
 	
 	private static final String PERSISTENCE_UNIT = "LiaTemplate";
-	private static final String USER_PROPERTIES_FILE = "META-INF/user.properties";
 	private static EntityManager em;
 	
 	public static synchronized EntityManager getEntityManager(){
 		if(em == null){
-		
+			EntityManagerFactory managerFactory;
 			ResourceBundle rb = readProperties();
 			if(rb!=null){
 				Properties props = new Properties();
@@ -32,9 +32,12 @@ public class DBManager {
 					String element = keys.nextElement();
 					props.put(element, rb.getString(element));
 				}
-				EntityManagerFactory managerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT, props);
-				em = managerFactory.createEntityManager();
+				managerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT, props);
+				
+			} else {
+				managerFactory = Persistence.createEntityManagerFactory(PERSISTENCE_UNIT);
 			}
+			em = managerFactory.createEntityManager();
 		}
 		
 		return em;
@@ -46,21 +49,10 @@ public class DBManager {
 	 */
 	private static ResourceBundle readProperties() {
 		ResourceBundle prop = null;
-		InputStream is = null;
 		try{
-			if(is == null){
-				System.out.println("Could not load properties file " + USER_PROPERTIES_FILE);
-			} else{
-			}
 			prop = ResourceBundle.getBundle("se.lia.template.user");
-		} finally{
-			if(is != null){
-				try{
-					is.close();
-				}catch (IOException e) {
-					// Noting to do, could not close stream.
-				}
-			}
+		} catch (MissingResourceException e){
+			System.out.println("Could not find user.properties file");
 		}
 		return prop;
 	}

@@ -1,0 +1,78 @@
+<project name="LiaTemplate" default="dist" basedir=".">
+	<description>
+    Build file for building Lia-Template
+  </description>
+	<!-- set global properties for this build -->
+	<property name="src" location="src/main" />
+	<property name="test-dir" location="src/test" />
+	<property name="build" location="build" />
+	<property name="test-build" location="${build}" />
+	<property name="meta-inf" location="${build}/META-INF" />
+	<property name="dist" location="dist" />
+		
+
+
+	<target name="init">
+		<!-- Create the time stamp -->
+		<tstamp />
+		<!-- Create the build directory structure used by compile -->
+		<mkdir dir="${build}" />
+	</target>
+
+	<path id="java.classpath">
+		<pathelement location="src/main/java" />
+		<pathelement location="lib/eclipselink-2.6.4/jpa/javax.persistence_2.1.1.v201509150925.jar" />
+		<pathelement location="lib/eclipselink-2.6.4/eclipselink.jar" />
+		<pathelement location="lib/db-derby-10.12.1.1-lib/lib/derbyclient.jar" />
+		<pathelement location="lib/db-derby-10.12.1.1-lib/lib/derby.jar" />
+	</path>
+
+	<path id="test.classpath">
+		<pathelement location="lib/junit-4.12/hamcrest-core-1.3.jar"/>                                 
+		<pathelement location="lib/junit-4.12/junit-4.12.jar"/>                                        
+		<pathelement location="lib/apache-ant-1.9.7/lib/ant.jar"/>
+		<pathelement location="${build}"/>   
+		<path refid="java.classpath"/>
+	</path>
+
+	<target name="compile" depends="clean, init" description="compile the source">
+		<copydir src="${src}/java/META-INF" dest="${meta-inf}"/>
+		<javac srcdir="${src}" destdir="${build}" includeantruntime="false">
+			<classpath refid="java.classpath"/>
+		</javac>
+	</target>
+
+	<target name="compileTest" depends="compile" description="compile jUnit Test cases ">
+		<mkdir dir="${test-build}"/>
+		<javac srcdir="${test-dir}" destdir="${test-build}" includeantruntime="true" nowarn="yes" debug="true" >
+			<classpath refid="test.classpath"/>
+		</javac>
+	</target>
+
+	<!--
+	<target name="test" depends="compileTest">
+	  <junit>
+	    <classpath refid="test.classpath"/>
+	    <batchtest>
+	       <fileset dir="${test-build}">
+	            <include name="**/*Test*" />
+	       </fileset>
+	    </batchtest>
+	    <formatter type="brief" usefile="false"/>
+	  </junit>
+	</target>  
+	-->
+	<target name="dist" depends="compile" description="generate the distribution">
+		<!-- Create the distribution directory -->
+		<mkdir dir="${dist}/lib" />
+
+		<!-- Put everything in ${build} into the MyProject-${DSTAMP}.jar file -->
+		<jar jarfile="${dist}/lib/LiaTemplate-${DSTAMP}.jar" basedir="${build}" />
+	</target>
+
+	<target name="clean" description="clean up">
+		<!-- Delete the ${build} and ${dist} directory trees -->
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+</project>
