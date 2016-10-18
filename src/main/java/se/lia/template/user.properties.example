@@ -1,0 +1,6 @@
+#Template for user specific settings that will override properties
+
+javax.persistence.jdbc.url=
+javax.persistence.jdbc.username=test
+javax.persistence.jdbc.password=test
+javax.persistence.jdbc.driver=org.apache.derby.jdbc.EmbeddedDriver

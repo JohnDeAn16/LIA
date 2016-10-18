@@ -1,13 +1,12 @@
 package se.lia.model;
 
-import javax.annotation.Generated;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class TestEntity {
+public class TemplateEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +30,20 @@ public class TestEntity {
 	public void setValue(String value) {
 		this.value = value;
 	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	@Override
+	public String toString() {
+		return "TestEntity [id=" + id + ", value=" + value + ", description=" + description + "]";
+	}
+	
 	
 	
 	

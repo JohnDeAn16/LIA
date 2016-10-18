@@ -1,1 +1,4 @@
 /bin/
+user.properties
+/build/
+/derby.log
