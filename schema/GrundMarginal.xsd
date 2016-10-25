@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<schema xmlns="http://www.w3.org/2001/XMLSchema" 
+targetNamespace="http://www.example.org/GrundMarginal" 
+xmlns:tns="http://www.example.org/GrundMarginal" 
+elementFormDefault="qualified" 
+xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+
+	<xsd:element name="GrundOchMarginal">
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="fastighetstaxeringsår">
+					<xsd:simpleType>
+						<xsd:restriction base="gYear">
+						</xsd:restriction>
+					</xsd:simpleType>
+				</xsd:element>
+				<xsd:element name="nivåfaktor" minOccurs="1" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="undreGräns">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:decimal">
+										<xsd:minInclusive value="1.1"/>
+										<xsd:maxInclusive value="99.9"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="övreGräns">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:decimal">
+										<xsd:minInclusive value="1.1"/>
+										<xsd:maxInclusive value="99.9"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="standardPoäng" minOccurs="1" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="undreGräns">
+								<xsd:simpleType>
+									<xsd:restriction base="int">
+										<xsd:minInclusive value="0"/>
+										<xsd:maxInclusive value="65"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="övreGräns">
+								<xsd:simpleType>
+									<xsd:restriction base="int">
+										<xsd:minInclusive value="1"/>
+										<xsd:maxInclusive value="68"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="värdeYta" minOccurs="1" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="undreGräns">
+								<xsd:simpleType>
+									<xsd:restriction base="int">
+										<xsd:minInclusive value="0"/>
+										<xsd:maxInclusive value="251"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="övreGräns">
+								<xsd:simpleType>
+									<xsd:restriction base="int">
+										<xsd:minInclusive value="75"/>
+										<xsd:maxInclusive value="9999"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+				<xsd:element name="värde">
+					<xsd:complexType>
+						<xsd:sequence>
+							<xsd:element name="grundVärde">
+								<xsd:simpleType>
+									<xsd:restriction base="int">
+										<xsd:minInclusive value="1000"/>
+										<xsd:maxInclusive value="999999"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="marginalVärde">
+								<simpleType>
+									<xsd:restriction base="int">
+										<xsd:minInclusive value="0"/>
+										<xsd:maxInclusive value="9999"/>
+									</xsd:restriction>
+								</simpleType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</schema>
