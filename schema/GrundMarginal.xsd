@@ -5,7 +5,6 @@ targetNamespace="http://www.example.org/GrundMarginal"
 xmlns:tns="http://www.example.org/GrundMarginal" 
 elementFormDefault="qualified" 
 xmlns:xsd="http://www.w3.org/2001/XMLSchema">
-
 	<xsd:element name="GrundOchMarginal">
 		<xsd:complexType>
 			<xsd:sequence>
