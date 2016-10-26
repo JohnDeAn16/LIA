@@ -11,7 +11,7 @@
         <xsd:element name="Aldersinverkan" minOccurs="1" maxOccurs="unbounded">
           <xsd:complexType>
             <xsd:sequence>
-              <xsd:element name="procent">
+              <xsd:element name="Procent">
                 <xsd:simpleType>
                   <xsd:restriction base="xsd:int">
                     <xsd:enumeration value="65"/>
@@ -50,7 +50,7 @@
         <xsd:element name ="Standardpoang" minOccurs="1" maxOccurs="unbounded">
           <xsd:complexType>
             <xsd:sequence>
-          	  <xsd:element name="undregräns">
+          	  <xsd:element name="Undregrans">
           	    <xsd:simpleType>
                   <xsd:restriction base="xsd:int">
                     <xsd:minInclusive value="0"/>
