@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<FörberedelseUnderlag>
+	<AnkomstDatum>0000</AnkomstDatum>
+	<TidsStämpel>0000</TidsStämpel>
+	<TotalLaddning>0000</TotalLaddning>
+	<Filer>
+		<Fil ämne="GrundOchMarginal">GrundMarginal.xml</Fil>
+		<Fil ämne="ÅldersInverkan">ÅldersInverkan.xml</Fil>
+	</Filer>
+</FörberedelseUnderlag>
