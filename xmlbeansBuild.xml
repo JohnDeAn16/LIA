@@ -1,0 +1,29 @@
+<project name="LiaTemplate" basedir=".">
+	
+	
+	<path id="xmlbeans.classpath">
+		<pathelement location="lib/xmlbeans-2.6.0/xmlbeans-2.6.0.jar"/>
+		<pathelement location="lib/xmlbeans-2.6.0/lib/xbean.jar"/>
+		<pathelement location="lib/xmlbeans-2.6.0/lib/jsr173_1.0_api.jar"/>
+	</path>
+	
+	<path id="xmltypes.classpath">
+		<pathelement location="xmlTypes/xmlTypes.jar"/>
+		<path refid="xmlbeans.classpath"/>
+	</path>
+	
+
+	
+	<!-- XMLBeans -->
+	<taskdef name="xmlbean"
+		classname="org.apache.xmlbeans.impl.tool.XMLBean"
+		classpathref="xmlbeans.classpath"/>
+	<fileset id="xmlSchema" dir="schema" includes="**/*.xsd"/>
+	
+	<target name="xmltype-codegen">
+		<xmlbean destfile="XMLTypes/xmlTypes.jar" srcgendir="XMLTypes" classpathref="xmltypes.classpath">
+			<fileset refid="xmlSchema"/>
+		</xmlbean>
+	</target>
+	
+</project>
