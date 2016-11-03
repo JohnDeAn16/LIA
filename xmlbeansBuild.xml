@@ -12,16 +12,26 @@
 		<path refid="xmlbeans.classpath"/>
 	</path>
 	
+	<target name="moveSchema">
+		<move todir="schema">
+			<fileset dir="XMLUnderlag" includes="*.xsd"/>
+		</move>
+	</target>
+				
+				
 
 	
 	<!-- XMLBeans -->
 	<taskdef name="xmlbean"
 		classname="org.apache.xmlbeans.impl.tool.XMLBean"
 		classpathref="xmlbeans.classpath"/>
-	<fileset id="xmlSchema" dir="schema" includes="**/*.xsd"/>
+	<fileset id="xmlSchema" dir="schema" includes="*.xsd"/>
 	
-	<target name="xmltype-codegen">
-		<xmlbean destfile="XMLTypes/xmlTypes.jar" srcgendir="XMLTypes" classpathref="xmltypes.classpath">
+	<target name="xmltype-codegen" depends="moveSchema">
+		<xmlbean destfile="XMLTypes/xmlTypes.jar"
+			srcgendir="XMLTypes"
+			classpathref="xmltypes.classpath">
+			
 			<fileset refid="xmlSchema"/>
 		</xmlbean>
 	</target>

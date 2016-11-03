@@ -6,12 +6,12 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import org.example.grundMarginal.GrundOchMarginalDocument.GrundOchMarginal.FastighetsTaxeringsAr;
-import org.example.grundMarginal.GrundOchMarginalDocument.GrundOchMarginal.NivaFaktor;
-import org.example.grundMarginal.GrundOchMarginalDocument.GrundOchMarginal.StandardPoang;
-import org.example.grundMarginal.GrundOchMarginalDocument.GrundOchMarginal.Varde;
-import org.example.grundMarginal.GrundOchMarginalDocument.GrundOchMarginal.VardeYta;
 
+import org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal.FastighetsTaxeringsAr;
+import org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal.NivaFaktor;
+import org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal.StandardPoang;
+import org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal.Varde;
+import org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal.VardeYta;
 
 @Entity
 public class GrundOchMarginalEntity 
