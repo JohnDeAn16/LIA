@@ -24,6 +24,12 @@ public class PrimitiveGrundOchMarginalEntity
 	private int grundVarde;
 	private int marginalVarde;
 	
+	/*
+	private double[][] nivaFaktor;
+	private int[][] standardPoang;
+	private int[][] vardeYta;
+	*/
+	
 
 	
 	public Long getId() {

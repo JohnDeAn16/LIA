@@ -7,5 +7,6 @@
     <tns:Fil amne="GrundOchMarginal">GrundMarginal.xml</tns:Fil>
     <tns:Fil amne="GrundOchMarginal">GrundMarginalInvalid.xml</tns:Fil>
     <tns:Fil amne="AldersInverkan">AldersInverkan.xml</tns:Fil>
+    <tns:Fil amne="GrundOchMarginal">GrundMarginalMultuValues.xml</tns:Fil>
   </tns:Filer>
 </tns:ForberedelseUnderlag>

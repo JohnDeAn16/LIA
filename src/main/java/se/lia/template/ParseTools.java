@@ -15,6 +15,7 @@ import javax.xml.validation.Validator;
 
 public class ParseTools 
 {
+	//Refaktorera till arv?
 	private ParseTools()
 	{
 		

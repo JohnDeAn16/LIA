@@ -16,7 +16,6 @@ public class LiaTemplate {
 	{
 		LiaTemplate.clean();
 		
-		DBManager.getEntityManager();
 		DocParser docParser = new DocParser(new File("XMLUnderlag/Doc.xml"));
 		ArrayList<String> gomFileNames = docParser.getTypeFileNames("GrundOchMarginal");
 		GrundMarginalParser gomParser = new GrundMarginalParser();
@@ -25,7 +24,7 @@ public class LiaTemplate {
 		GrundOchMarginalEntity[] gomEntity;
 		
 		for(int i = 0; i < gomFileNames.size(); i++)
-		{
+		{	
 			gomEntity = gomParser.makeEntity(new File("XMLUnderlag/" + gomFileNames.get(i)));
 			if(gomEntity != null)
 			{
@@ -47,4 +46,14 @@ public class LiaTemplate {
 		em.createQuery("DELETE FROM PrimitiveGrundOchMarginalEntity e").executeUpdate();
 		em.getTransaction().commit();
 	}
+	
+	
+	/*
+	 * TODO Lista
+	 * Fixa schema, GrundOchMarginal är 1/J inte 1..n/J
+	 * Statiska funktioner i ParseTools kan ärvas istället
+	 * Refaktorera Entiteter för att inkludera relationer
+	 * 
+	 * Gör fler enhetstester
+	 */
 }
