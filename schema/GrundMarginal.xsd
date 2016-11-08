@@ -8,7 +8,7 @@ xmlns:xs="http://www.w3.org/2001/XMLSchema">
 	<xs:element name="GoMDoc">
 		<xs:complexType>
 			<xs:sequence>
-				<xs:element name="GrundOchMarginal" minOccurs="1" maxOccurs="unbounded">
+				<xs:element name="GrundOchMarginal">
 					<xs:complexType>
 						<xs:sequence>
 							<xs:element name="fastighetsTaxeringsAr">

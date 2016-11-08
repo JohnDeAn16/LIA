@@ -8,7 +8,7 @@ import org.example.metaSchema.*;
 import org.example.metaSchema.ForberedelseUnderlagDocument.ForberedelseUnderlag;
 import org.example.metaSchema.ForberedelseUnderlagDocument.ForberedelseUnderlag.Filer.Fil;
 
-public class DocParser 
+public class DocParser extends ParserFactory
 {
 	private ForberedelseUnderlagDocument f;
 	private File schema;
@@ -26,9 +26,9 @@ public class DocParser
 	
 	private void parseFile(File xml)
 	{
-		if(ParseTools.validate(xml, schema))
+		if(validate(xml, schema))
 		{
-			String s = ParseTools.readFileToString(xml);
+			String s = readFileToString(xml);
 			try 
 			{
 				f = ForberedelseUnderlagDocument.Factory.parse(s);
@@ -59,7 +59,7 @@ public class DocParser
 		
 		for(int i = 0; i < files.length; i++)
 		{
-			if(files[i].getAmne().equals(type))
+			if(files[i].getAmne().equalsIgnoreCase(type))
 			{
 				fileNames.add(files[i].getStringValue());
 			}

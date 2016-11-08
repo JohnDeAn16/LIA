@@ -5,6 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.ArrayList;
 
 import javax.xml.XMLConstants;
 import javax.xml.transform.stream.StreamSource;
@@ -12,14 +13,31 @@ import javax.xml.validation.Schema;
 import javax.xml.validation.SchemaFactory;
 import javax.xml.validation.Validator;
 
-
-public class ParseTools 
+public class ParserFactory implements IParser 
 {
-	//Refaktorera till arv?
-	private ParseTools()
+	public void buildEntity(File xml)
 	{
+		DocParser docParser = new DocParser(xml);
+		ArrayList<String> fileNames = null;
 		
+		for(FileType t: FileType.values())
+		{
+			switch(t)
+			{
+			case GRUNDOCHMARGINAL:
+				fileNames = docParser.getTypeFileNames(t.name());
+				GrundMarginalParser gmParser = new GrundMarginalParser();
+				for(String s: fileNames)
+				{
+					gmParser.buildEntity(new File("XMLUnderlag/" + s));
+				}
+				break;
+			case ALDERSINVERKAN:
+				break;
+			}
+		}
 	}
+	
 	/**
 	 * Validerar xml fil mot schema
 	 * @param xml Xml fil som skall valideras

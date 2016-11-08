@@ -17,7 +17,7 @@ package org.example.underlag;
 public interface AldersinverkanRootDocument extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(AldersinverkanRootDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("aldersinverkanrootc073doctype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(AldersinverkanRootDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("aldersinverkanrootc073doctype");
     
     /**
      * Gets the "Aldersinverkan_root" element
@@ -42,7 +42,7 @@ public interface AldersinverkanRootDocument extends org.apache.xmlbeans.XmlObjec
     public interface AldersinverkanRoot extends org.apache.xmlbeans.XmlObject
     {
         public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(AldersinverkanRoot.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("aldersinverkanrooted79elemtype");
+            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(AldersinverkanRoot.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("aldersinverkanrooted79elemtype");
         
         /**
          * Gets the "Fastighetstaxeringsar" element
@@ -207,7 +207,7 @@ public interface AldersinverkanRootDocument extends org.apache.xmlbeans.XmlObjec
         public interface Fastighetstaxeringsar extends org.apache.xmlbeans.XmlGYear
         {
             public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Fastighetstaxeringsar.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("fastighetstaxeringsar68a9elemtype");
+                org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Fastighetstaxeringsar.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("fastighetstaxeringsar68a9elemtype");
             
             /**
              * A factory class with static methods for creating instances
@@ -237,7 +237,7 @@ public interface AldersinverkanRootDocument extends org.apache.xmlbeans.XmlObjec
         public interface Aldersinverkan extends org.apache.xmlbeans.XmlObject
         {
             public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Aldersinverkan.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("aldersinverkand09celemtype");
+                org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Aldersinverkan.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("aldersinverkand09celemtype");
             
             /**
              * Gets the "Procent" element
@@ -267,7 +267,7 @@ public interface AldersinverkanRootDocument extends org.apache.xmlbeans.XmlObjec
             public interface Procent extends org.apache.xmlbeans.XmlInt
             {
                 public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Procent.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("procent661belemtype");
+                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Procent.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("procent661belemtype");
                 
                 /**
                  * A factory class with static methods for creating instances
@@ -314,7 +314,7 @@ public interface AldersinverkanRootDocument extends org.apache.xmlbeans.XmlObjec
         public interface Vardear extends org.apache.xmlbeans.XmlObject
         {
             public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Vardear.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("vardeare25eelemtype");
+                org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Vardear.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("vardeare25eelemtype");
             
             /**
              * Gets the "Undregrans" element
@@ -364,7 +364,7 @@ public interface AldersinverkanRootDocument extends org.apache.xmlbeans.XmlObjec
             public interface Undregrans extends org.apache.xmlbeans.XmlGYear
             {
                 public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Undregrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("undregransc7d7elemtype");
+                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Undregrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("undregransc7d7elemtype");
                 
                 /**
                  * A factory class with static methods for creating instances
@@ -394,7 +394,7 @@ public interface AldersinverkanRootDocument extends org.apache.xmlbeans.XmlObjec
             public interface Ovregrans extends org.apache.xmlbeans.XmlGYear
             {
                 public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Ovregrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("ovregransffebelemtype");
+                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Ovregrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("ovregransffebelemtype");
                 
                 /**
                  * A factory class with static methods for creating instances
@@ -441,7 +441,7 @@ public interface AldersinverkanRootDocument extends org.apache.xmlbeans.XmlObjec
         public interface Standardpoang extends org.apache.xmlbeans.XmlObject
         {
             public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Standardpoang.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("standardpoangd3a3elemtype");
+                org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Standardpoang.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("standardpoangd3a3elemtype");
             
             /**
              * Gets the "Undregrans" element
@@ -491,7 +491,7 @@ public interface AldersinverkanRootDocument extends org.apache.xmlbeans.XmlObjec
             public interface Undregrans extends org.apache.xmlbeans.XmlInt
             {
                 public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Undregrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("undregransfa5celemtype");
+                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Undregrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("undregransfa5celemtype");
                 
                 /**
                  * A factory class with static methods for creating instances
@@ -521,7 +521,7 @@ public interface AldersinverkanRootDocument extends org.apache.xmlbeans.XmlObjec
             public interface Ovregrans extends org.apache.xmlbeans.XmlInt
             {
                 public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Ovregrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("ovregransd370elemtype");
+                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Ovregrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("ovregransd370elemtype");
                 
                 /**
                  * A factory class with static methods for creating instances
@@ -568,7 +568,7 @@ public interface AldersinverkanRootDocument extends org.apache.xmlbeans.XmlObjec
         public interface Reduktionsfaktor extends org.apache.xmlbeans.XmlObject
         {
             public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Reduktionsfaktor.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("reduktionsfaktor9d54elemtype");
+                org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Reduktionsfaktor.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("reduktionsfaktor9d54elemtype");
             
             /**
              * Gets the "Faktor" element
@@ -598,7 +598,7 @@ public interface AldersinverkanRootDocument extends org.apache.xmlbeans.XmlObjec
             public interface Faktor extends org.apache.xmlbeans.XmlDecimal
             {
                 public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Faktor.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("faktor55f1elemtype");
+                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Faktor.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("faktor55f1elemtype");
                 
                 /**
                  * A factory class with static methods for creating instances

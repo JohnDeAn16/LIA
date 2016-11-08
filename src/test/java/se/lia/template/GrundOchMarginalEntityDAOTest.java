@@ -14,7 +14,7 @@ import se.lia.model.GrundOchMarginalEntity;
 
 public class GrundOchMarginalEntityDAOTest 
 {
-	private GrundOchMarginalEntityDAO dao;
+	/*private GrundOchMarginalEntityDAO dao;
 	private GrundOchMarginalEntity[] eArr;
 	private GrundOchMarginalEntity e;
 	
@@ -63,7 +63,7 @@ public class GrundOchMarginalEntityDAOTest
 		
 		Assert.assertTrue(iEntity == null);
 		Assert.assertTrue(vEntity != null);
-	}
+	}*/
 	
 	
 	

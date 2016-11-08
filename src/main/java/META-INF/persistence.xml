@@ -7,7 +7,6 @@
 		<class>se.lia.model.TemplateEntity</class>
 		<class>se.lia.model.TrialEntity</class>
 		<class>se.lia.model.GrundOchMarginalEntity</class>
-		<class>se.lia.model.PrimitiveGrundOchMarginalEntity</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
 			<property name="javax.persistence.jdbc.url"

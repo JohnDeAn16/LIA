@@ -83,84 +83,33 @@ public class GoMDocDocumentImpl extends org.apache.xmlbeans.impl.values.XmlCompl
         
         
         /**
-         * Gets array of all "GrundOchMarginal" elements
+         * Gets the "GrundOchMarginal" element
          */
-        public org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal[] getGrundOchMarginalArray()
-        {
-            synchronized (monitor())
-            {
-                check_orphaned();
-                java.util.List targetList = new java.util.ArrayList();
-                get_store().find_all_element_users(GRUNDOCHMARGINAL$0, targetList);
-                org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal[] result = new org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal[targetList.size()];
-                targetList.toArray(result);
-                return result;
-            }
-        }
-        
-        /**
-         * Gets ith "GrundOchMarginal" element
-         */
-        public org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal getGrundOchMarginalArray(int i)
+        public org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal getGrundOchMarginal()
         {
             synchronized (monitor())
             {
                 check_orphaned();
                 org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal target = null;
-                target = (org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal)get_store().find_element_user(GRUNDOCHMARGINAL$0, i);
+                target = (org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal)get_store().find_element_user(GRUNDOCHMARGINAL$0, 0);
                 if (target == null)
                 {
-                    throw new IndexOutOfBoundsException();
+                    return null;
                 }
                 return target;
             }
         }
         
         /**
-         * Returns number of "GrundOchMarginal" element
+         * Sets the "GrundOchMarginal" element
          */
-        public int sizeOfGrundOchMarginalArray()
+        public void setGrundOchMarginal(org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal grundOchMarginal)
         {
-            synchronized (monitor())
-            {
-                check_orphaned();
-                return get_store().count_elements(GRUNDOCHMARGINAL$0);
-            }
+            generatedSetterHelperImpl(grundOchMarginal, GRUNDOCHMARGINAL$0, 0, org.apache.xmlbeans.impl.values.XmlObjectBase.KIND_SETTERHELPER_SINGLETON);
         }
         
         /**
-         * Sets array of all "GrundOchMarginal" element  WARNING: This method is not atomicaly synchronized.
-         */
-        public void setGrundOchMarginalArray(org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal[] grundOchMarginalArray)
-        {
-            check_orphaned();
-            arraySetterHelper(grundOchMarginalArray, GRUNDOCHMARGINAL$0);
-        }
-        
-        /**
-         * Sets ith "GrundOchMarginal" element
-         */
-        public void setGrundOchMarginalArray(int i, org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal grundOchMarginal)
-        {
-            generatedSetterHelperImpl(grundOchMarginal, GRUNDOCHMARGINAL$0, i, org.apache.xmlbeans.impl.values.XmlObjectBase.KIND_SETTERHELPER_ARRAYITEM);
-        }
-        
-        /**
-         * Inserts and returns a new empty value (as xml) as the ith "GrundOchMarginal" element
-         */
-        public org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal insertNewGrundOchMarginal(int i)
-        {
-            synchronized (monitor())
-            {
-                check_orphaned();
-                org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal target = null;
-                target = (org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal)get_store().insert_element_user(GRUNDOCHMARGINAL$0, i);
-                return target;
-            }
-        }
-        
-        /**
-         * Appends and returns a new empty value (as xml) as the last "GrundOchMarginal" element
+         * Appends and returns a new empty "GrundOchMarginal" element
          */
         public org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal addNewGrundOchMarginal()
         {
@@ -170,18 +119,6 @@ public class GoMDocDocumentImpl extends org.apache.xmlbeans.impl.values.XmlCompl
                 org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal target = null;
                 target = (org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal)get_store().add_element_user(GRUNDOCHMARGINAL$0);
                 return target;
-            }
-        }
-        
-        /**
-         * Removes the ith "GrundOchMarginal" element
-         */
-        public void removeGrundOchMarginal(int i)
-        {
-            synchronized (monitor())
-            {
-                check_orphaned();
-                get_store().remove_element(GRUNDOCHMARGINAL$0, i);
             }
         }
         /**

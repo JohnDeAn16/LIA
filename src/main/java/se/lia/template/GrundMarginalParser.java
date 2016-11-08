@@ -7,23 +7,32 @@ import org.example.grundMarginal.GoMDocDocument.GoMDoc;
 import org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal;
 
 import se.lia.model.GrundOchMarginalEntity;
-import se.lia.model.PrimitiveGrundOchMarginalEntity;
+import se.lia.persistence.GrundOchMarginalEntityDAO;
 
 
 
-public class GrundMarginalParser 
+public class GrundMarginalParser extends ParserFactory
 {
-	GoMDocDocument gmDoc;
 	File schema;
+	GrundOchMarginalEntityDAO dao;
 	
 	public GrundMarginalParser()
 	{
 		this.schema = new File("schema/GrundMarginal.xsd");
+		dao = GrundOchMarginalEntityDAO.getInstance();
 	}
 	
-	private void parseFile(File xml)
+	public void buildEntity(File xml)
 	{
-		String s = ParseTools.readFileToString(xml);
+		GrundOchMarginalEntity e = makeEntity(xml);
+		dao.save(e);
+		
+	}
+	
+	private GoMDocDocument parseFile(File xml)
+	{
+		GoMDocDocument gmDoc = null;
+		String s = readFileToString(xml);
 		try
 		{
 			gmDoc = GoMDocDocument.Factory.parse(s);
@@ -32,6 +41,7 @@ public class GrundMarginalParser
 		{
 			e.printStackTrace();
 		}
+		return gmDoc;
 	}
 	
 	
@@ -42,77 +52,60 @@ public class GrundMarginalParser
 	 * @param xml Xml-fil som innehåller 1..n GrundOchMarginal Objekt
 	 * @return 	  En array av GrundOchMarginalEntity Objekt
 	 */
-	public GrundOchMarginalEntity[] makeEntity(File xml)
+	public GrundOchMarginalEntity makeEntity(File xml)
 	{
-		GrundOchMarginalEntity[] e = null;
-		if(ParseTools.validate(xml, schema))
+		GrundOchMarginalEntity e = null;
+		GoMDocDocument gmDoc = null;
+		if(validate(xml, schema))
 		{
-			this.parseFile(xml);
+			gmDoc = this.parseFile(xml);
 		}
 		if(gmDoc != null)
 		{
 			GoMDoc gom = gmDoc.getGoMDoc();
-			//refaktorisera sen
 			gmDoc = null;
-			GrundOchMarginal[] gm = gom.getGrundOchMarginalArray();
-			e = new GrundOchMarginalEntity[gm.length];
+			GrundOchMarginal gm = gom.getGrundOchMarginal();
+			e = new GrundOchMarginalEntity();
 			
-			for(int i = 0; i < gm.length; i++)
+			long[] nfug = new long[gm.getNivaFaktorArray().length];
+			long[] nfog = new long[gm.getNivaFaktorArray().length];
+			
+			for(int i = 0; i < nfug.length; i++)				
 			{
-				e[i] = new GrundOchMarginalEntity();
-				e[i].setFta(gm[i].xgetFastighetsTaxeringsAr());
-				e[i].setNf(gm[i].getNivaFaktorArray());
-				e[i].setSp(gm[i].getStandardPoangArray());
-				e[i].setVy(gm[i].getVardeYtaArray());
-				e[i].setV(gm[i].getVarde());
+				nfug[i] = gm.getNivaFaktorArray(i).xgetUndreGrans().getBigDecimalValue().longValue();
+				nfog[i] = gm.getNivaFaktorArray(i).xgetOvreGrans().getBigDecimalValue().longValue();
 			}
+			
+			int[] spug = new int[gm.getStandardPoangArray().length];
+			int[] spog = new int[gm.getStandardPoangArray().length];
+			
+			for(int i = 0; i < spug.length; i++)
+			{
+				spug[i] = gm.getStandardPoangArray(i).xgetUndreGrans().getIntValue();
+				spog[i] = gm.getStandardPoangArray(i).xgetOvreGrans().getIntValue();
+			}
+			
+			int[] vyug = new int[gm.getVardeYtaArray().length];
+			int[] vyog = new int[gm.getVardeYtaArray().length];
+			
+			for(int i = 0; i < vyug.length; i++)
+			{
+				vyug[i] = gm.getVardeYtaArray(i).xgetUndreGrans().getIntValue();
+				vyog[i] = gm.getVardeYtaArray(i).xgetOvreGrans().getIntValue();
+			}
+			
+			e.setFastighetsTaxeringsAr(gm.xgetFastighetsTaxeringsAr().getIntValue());
+			e.setNivaFaktorUndreGrans(nfug);
+			e.setNivaFaktorOvreGrans(nfog);
+			e.setStandardPoangUndreGrans(spug);
+			e.setStandardPoangOvreGrans(spog);
+			e.setVardeYtaUndreGrans(vyug);
+			e.setVardeYtaOvreGrans(vyog);
+			e.setGrundVarde(gm.getVarde().xgetGrundVarde().getIntValue());
+			e.setMarginalVarde(gm.getVarde().xgetMarginalVarde().getIntValue());
 		}
 		return e;
 	}
 	
-	//Endast för att testa, skrota senare
-	public PrimitiveGrundOchMarginalEntity buildEntity(GrundOchMarginalEntity e)
-	{
-		PrimitiveGrundOchMarginalEntity p = new PrimitiveGrundOchMarginalEntity();
-		
-		double[] nfug = new double[e.getNf().length];
-		double[] nfog = new double[e.getNf().length];
-		
-		for(int i = 0; i < e.getNf().length; i++)
-		{
-			nfug[i] = e.getNf()[i].xgetUndreGrans().getBigDecimalValue().doubleValue();
-			nfog[i] = e.getNf()[i].xgetOvreGrans().getBigDecimalValue().doubleValue();
-		}
-		
-		int[] spug = new int[e.getSp().length];
-		int[] spog = new int[e.getSp().length];
-		
-		for(int i = 0; i < e.getSp().length; i++)
-		{
-			spug[i] = e.getSp()[i].getUndreGrans();
-			spog[i] = e.getSp()[i].getOvreGrans();
-		}
-		
-		int[] vyug = new int[e.getVy().length];
-		int[] vyog = new int[e.getVy().length];
-		
-		for(int i = 0; i < e.getVy().length; i++)
-		{
-			vyug[i] = e.getVy()[i].getUndreGrans();
-			vyog[i] = e.getVy()[i].getOvreGrans();
-		}
-		
-		p.setFastighetsTaxeringsAr(e.getFta().getIntValue());
-		p.setNivaFaktorUndreGrans(nfug);
-		p.setNivaFaktorOvreGrans(nfog);
-		p.setStandardPoangUndreGrans(spug);
-		p.setStandardPoangOvreGrans(spog);
-		p.setVardeYtaUndreGrans(vyug);
-		p.setVardeYtaOvreGrans(vyog);
-		p.setGrundVarde(e.getV().getGrundVarde());
-		p.setMarginalVarde(e.getV().getMarginalVarde());
-		
-		return p;
-	}
 
 }

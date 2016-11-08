@@ -17,7 +17,7 @@ package org.example.grundMarginal;
 public interface GoMDocDocument extends org.apache.xmlbeans.XmlObject
 {
     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GoMDocDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("gomdoc3bf5doctype");
+        org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GoMDocDocument.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("gomdoc3bf5doctype");
     
     /**
      * Gets the "GoMDoc" element
@@ -42,47 +42,22 @@ public interface GoMDocDocument extends org.apache.xmlbeans.XmlObject
     public interface GoMDoc extends org.apache.xmlbeans.XmlObject
     {
         public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GoMDoc.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("gomdocd304elemtype");
+            org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GoMDoc.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("gomdocd304elemtype");
         
         /**
-         * Gets array of all "GrundOchMarginal" elements
+         * Gets the "GrundOchMarginal" element
          */
-        org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal[] getGrundOchMarginalArray();
+        org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal getGrundOchMarginal();
         
         /**
-         * Gets ith "GrundOchMarginal" element
+         * Sets the "GrundOchMarginal" element
          */
-        org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal getGrundOchMarginalArray(int i);
+        void setGrundOchMarginal(org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal grundOchMarginal);
         
         /**
-         * Returns number of "GrundOchMarginal" element
-         */
-        int sizeOfGrundOchMarginalArray();
-        
-        /**
-         * Sets array of all "GrundOchMarginal" element
-         */
-        void setGrundOchMarginalArray(org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal[] grundOchMarginalArray);
-        
-        /**
-         * Sets ith "GrundOchMarginal" element
-         */
-        void setGrundOchMarginalArray(int i, org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal grundOchMarginal);
-        
-        /**
-         * Inserts and returns a new empty value (as xml) as the ith "GrundOchMarginal" element
-         */
-        org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal insertNewGrundOchMarginal(int i);
-        
-        /**
-         * Appends and returns a new empty value (as xml) as the last "GrundOchMarginal" element
+         * Appends and returns a new empty "GrundOchMarginal" element
          */
         org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal addNewGrundOchMarginal();
-        
-        /**
-         * Removes the ith "GrundOchMarginal" element
-         */
-        void removeGrundOchMarginal(int i);
         
         /**
          * An XML GrundOchMarginal(@http://www.example.org/GrundMarginal).
@@ -92,7 +67,7 @@ public interface GoMDocDocument extends org.apache.xmlbeans.XmlObject
         public interface GrundOchMarginal extends org.apache.xmlbeans.XmlObject
         {
             public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GrundOchMarginal.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("grundochmarginal3cdbelemtype");
+                org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GrundOchMarginal.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("grundochmarginal3cdbelemtype");
             
             /**
              * Gets the "fastighetsTaxeringsAr" element
@@ -257,7 +232,7 @@ public interface GoMDocDocument extends org.apache.xmlbeans.XmlObject
             public interface FastighetsTaxeringsAr extends org.apache.xmlbeans.XmlGYear
             {
                 public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(FastighetsTaxeringsAr.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("fastighetstaxeringsar702belemtype");
+                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(FastighetsTaxeringsAr.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("fastighetstaxeringsar702belemtype");
                 
                 /**
                  * A factory class with static methods for creating instances
@@ -287,7 +262,7 @@ public interface GoMDocDocument extends org.apache.xmlbeans.XmlObject
             public interface NivaFaktor extends org.apache.xmlbeans.XmlObject
             {
                 public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(NivaFaktor.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("nivafaktor0dc4elemtype");
+                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(NivaFaktor.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("nivafaktor0dc4elemtype");
                 
                 /**
                  * Gets the "undreGrans" element
@@ -337,7 +312,7 @@ public interface GoMDocDocument extends org.apache.xmlbeans.XmlObject
                 public interface UndreGrans extends org.apache.xmlbeans.XmlDecimal
                 {
                     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                      org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(UndreGrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("undregrans6babelemtype");
+                      org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(UndreGrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("undregrans6babelemtype");
                     
                     /**
                      * A factory class with static methods for creating instances
@@ -367,7 +342,7 @@ public interface GoMDocDocument extends org.apache.xmlbeans.XmlObject
                 public interface OvreGrans extends org.apache.xmlbeans.XmlDecimal
                 {
                     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                      org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(OvreGrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("ovregransb1d7elemtype");
+                      org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(OvreGrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("ovregransb1d7elemtype");
                     
                     /**
                      * A factory class with static methods for creating instances
@@ -414,7 +389,7 @@ public interface GoMDocDocument extends org.apache.xmlbeans.XmlObject
             public interface StandardPoang extends org.apache.xmlbeans.XmlObject
             {
                 public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(StandardPoang.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("standardpoang8585elemtype");
+                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(StandardPoang.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("standardpoang8585elemtype");
                 
                 /**
                  * Gets the "undreGrans" element
@@ -464,7 +439,7 @@ public interface GoMDocDocument extends org.apache.xmlbeans.XmlObject
                 public interface UndreGrans extends org.apache.xmlbeans.XmlInt
                 {
                     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                      org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(UndreGrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("undregrans0a3eelemtype");
+                      org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(UndreGrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("undregrans0a3eelemtype");
                     
                     /**
                      * A factory class with static methods for creating instances
@@ -494,7 +469,7 @@ public interface GoMDocDocument extends org.apache.xmlbeans.XmlObject
                 public interface OvreGrans extends org.apache.xmlbeans.XmlInt
                 {
                     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                      org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(OvreGrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("ovregrans0492elemtype");
+                      org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(OvreGrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("ovregrans0492elemtype");
                     
                     /**
                      * A factory class with static methods for creating instances
@@ -541,7 +516,7 @@ public interface GoMDocDocument extends org.apache.xmlbeans.XmlObject
             public interface VardeYta extends org.apache.xmlbeans.XmlObject
             {
                 public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(VardeYta.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("vardeyta6a95elemtype");
+                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(VardeYta.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("vardeyta6a95elemtype");
                 
                 /**
                  * Gets the "undreGrans" element
@@ -591,7 +566,7 @@ public interface GoMDocDocument extends org.apache.xmlbeans.XmlObject
                 public interface UndreGrans extends org.apache.xmlbeans.XmlInt
                 {
                     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                      org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(UndreGrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("undregrans163celemtype");
+                      org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(UndreGrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("undregrans163celemtype");
                     
                     /**
                      * A factory class with static methods for creating instances
@@ -621,7 +596,7 @@ public interface GoMDocDocument extends org.apache.xmlbeans.XmlObject
                 public interface OvreGrans extends org.apache.xmlbeans.XmlInt
                 {
                     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                      org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(OvreGrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("ovregransf768elemtype");
+                      org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(OvreGrans.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("ovregransf768elemtype");
                     
                     /**
                      * A factory class with static methods for creating instances
@@ -668,7 +643,7 @@ public interface GoMDocDocument extends org.apache.xmlbeans.XmlObject
             public interface Varde extends org.apache.xmlbeans.XmlObject
             {
                 public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Varde.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("varde802felemtype");
+                    org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(Varde.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("varde802felemtype");
                 
                 /**
                  * Gets the "grundVarde" element
@@ -718,7 +693,7 @@ public interface GoMDocDocument extends org.apache.xmlbeans.XmlObject
                 public interface GrundVarde extends org.apache.xmlbeans.XmlInt
                 {
                     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                      org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GrundVarde.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("grundvardebf73elemtype");
+                      org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(GrundVarde.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("grundvardebf73elemtype");
                     
                     /**
                      * A factory class with static methods for creating instances
@@ -748,7 +723,7 @@ public interface GoMDocDocument extends org.apache.xmlbeans.XmlObject
                 public interface MarginalVarde extends org.apache.xmlbeans.XmlInt
                 {
                     public static final org.apache.xmlbeans.SchemaType type = (org.apache.xmlbeans.SchemaType)
-                      org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(MarginalVarde.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.s590423E410BDEBA4AC0B876F94C44E9B").resolveHandle("marginalvarde74eaelemtype");
+                      org.apache.xmlbeans.XmlBeans.typeSystemForClassLoader(MarginalVarde.class.getClassLoader(), "schemaorg_apache_xmlbeans.system.sCDC654518B85F28E08CDA8E17E2DCA50").resolveHandle("marginalvarde74eaelemtype");
                     
                     /**
                      * A factory class with static methods for creating instances

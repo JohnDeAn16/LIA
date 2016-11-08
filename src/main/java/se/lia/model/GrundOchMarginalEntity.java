@@ -21,53 +21,93 @@ public class GrundOchMarginalEntity
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	
-	private FastighetsTaxeringsAr fta;
-	private NivaFaktor[] nf;
-	private StandardPoang[] sp;
-	private VardeYta[] vy;
-	private Varde v;
+	private int fastighetsTaxeringsAr;
+	private long[] nivaFaktorUndreGrans;
+	private long[] nivaFaktorOvreGrans;
+	private int[] standardPoangUndreGrans;
+	private int[] standardPoangOvreGrans;
+	private int[] vardeYtaUndreGrans;
+	private int[] vardeYtaOvreGrans;
+	private int grundVarde;
+	private int marginalVarde;
+	
+	/*
+	private double[][] nivaFaktor;
+	private int[][] standardPoang;
+	private int[][] vardeYta;
+	*/
 	
 
+	
 	public Long getId() {
 		return id;
 	}
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public FastighetsTaxeringsAr getFta() {
-		return fta;
+	public int getFastighetsTaxeringsAr() {
+		return fastighetsTaxeringsAr;
 	}
-	public void setFta(FastighetsTaxeringsAr fta) {
-		this.fta = fta;
+	public void setFastighetsTaxeringsAr(int fastighetsTaxeringsAr) {
+		this.fastighetsTaxeringsAr = fastighetsTaxeringsAr;
 	}
-	public NivaFaktor[] getNf() {
-		return nf;
+	public long[] getNivaFaktorUndreGrans() {
+		return nivaFaktorUndreGrans;
 	}
-	public void setNf(NivaFaktor[] nf) {
-		this.nf = nf;
+	public void setNivaFaktorUndreGrans(long[] nivaFaktorUndreGrans) {
+		this.nivaFaktorUndreGrans = nivaFaktorUndreGrans;
 	}
-	public StandardPoang[] getSp() {
-		return sp;
+	public long[] getNivaFaktorOvreGrans() {
+		return nivaFaktorOvreGrans;
 	}
-	public void setSp(StandardPoang[] sp) {
-		this.sp = sp;
+	public void setNivaFaktorOvreGrans(long[] nivaFaktorOvreGrans) {
+		this.nivaFaktorOvreGrans = nivaFaktorOvreGrans;
 	}
-	public VardeYta[] getVy() {
-		return vy;
+	public int[] getStandardPoangUndreGrans() {
+		return standardPoangUndreGrans;
 	}
-	public void setVy(VardeYta[] vy) {
-		this.vy = vy;
+	public void setStandardPoangUndreGrans(int[] standardPoangUndreGrans) {
+		this.standardPoangUndreGrans = standardPoangUndreGrans;
 	}
-	public Varde getV() {
-		return v;
+	public int[] getStandardPoangOvreGrans() {
+		return standardPoangOvreGrans;
 	}
-	public void setV(Varde v) {
-		this.v = v;
+	public void setStandardPoangOvreGrans(int[] standardPoangOvreGrans) {
+		this.standardPoangOvreGrans = standardPoangOvreGrans;
+	}
+	public int[] getVardeYtaUndreGrans() {
+		return vardeYtaUndreGrans;
+	}
+	public void setVardeYtaUndreGrans(int[] vardeYtaUndreGrans) {
+		this.vardeYtaUndreGrans = vardeYtaUndreGrans;
+	}
+	public int[] getVardeYtaOvreGrans() {
+		return vardeYtaOvreGrans;
+	}
+	public void setVardeYtaOvreGrans(int[] vardeYtaOvreGrans) {
+		this.vardeYtaOvreGrans = vardeYtaOvreGrans;
+	}
+	public int getGrundVarde() {
+		return grundVarde;
+	}
+	public void setGrundVarde(int grundVarde) {
+		this.grundVarde = grundVarde;
+	}
+	public int getMarginalVarde() {
+		return marginalVarde;
+	}
+	public void setMarginalVarde(int marginalVarde) {
+		this.marginalVarde = marginalVarde;
 	}
 	@Override
 	public String toString() {
-		return "GrundOchMarginalEntity [id=" + id + ", fta=" + fta + ", nf=" + Arrays.toString(nf) + ", sp="
-				+ Arrays.toString(sp) + ", vy=" + Arrays.toString(vy) + ", v=" + v + "]";
+		return "PrimitiveGrundOchMarginalEntity [id=" + id + ", fastighetsTaxeringsAr=" + fastighetsTaxeringsAr
+				+ ", nivaFaktorUndreGrans=" + Arrays.toString(nivaFaktorUndreGrans) + ", nivaFaktorOvreGrans="
+				+ Arrays.toString(nivaFaktorOvreGrans) + ", standardPoangUndreGrans="
+				+ Arrays.toString(standardPoangUndreGrans) + ", standardPoangOvreGrans="
+				+ Arrays.toString(standardPoangOvreGrans) + ", vardeYtaUndreGrans="
+				+ Arrays.toString(vardeYtaUndreGrans) + ", vardeYtaOvreGrans=" + Arrays.toString(vardeYtaOvreGrans)
+				+ ", grundVarde=" + grundVarde + ", marginalVarde=" + marginalVarde + "]";
 	}
 	
 	
