@@ -1,7 +1,5 @@
 package se.lia.persistence;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.MissingResourceException;
 import java.util.Properties;

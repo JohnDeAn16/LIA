@@ -4,9 +4,8 @@
 	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
 	<persistence-unit name="LiaTemplate" transaction-type="RESOURCE_LOCAL">
 		
-		<class>se.lia.model.TemplateEntity</class>
-		<class>se.lia.model.TrialEntity</class>
 		<class>se.lia.model.GrundOchMarginalEntity</class>
+		<class>se.lia.model.AldersInverkanEntity</class>
 		<properties>
 			<property name="javax.persistence.jdbc.driver" value="org.apache.derby.jdbc.EmbeddedDriver" />
 			<property name="javax.persistence.jdbc.url"
@@ -15,7 +14,7 @@
 			<property name="javax.persistence.jdbc.password" value="test" />
 
 			<!-- EclipseLink should create the database schema automatically -->
-			<property name="eclipselink.ddl-generation" value="create-tables" />
+			<property name="eclipselink.ddl-generation" value="create-or-extend-tables" />
 			<property name="eclipselink.ddl-generation.output-mode"
 				value="database" />
 		</properties>

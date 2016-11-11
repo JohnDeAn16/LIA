@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tns:Aldersinverkan_root xmlns:tns="http://www.example.org/Underlag" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/Underlag ../schema/AldersInverkan.xsd ">
+  <tns:Fastighetstaxeringsar>2001</tns:Fastighetstaxeringsar>
+  <tns:Aldersinverkan>
+    <tns:Procent>65</tns:Procent>
+  </tns:Aldersinverkan>
+  <tns:Vardear>
+    <tns:Undregrans>2001</tns:Undregrans>
+    <tns:Ovregrans>2001</tns:Ovregrans>
+  </tns:Vardear>
+  <tns:Standardpoang>
+    <tns:Undregrans>0</tns:Undregrans>
+    <tns:Ovregrans>8</tns:Ovregrans>
+  </tns:Standardpoang>
+  <tns:Reduktionsfaktor>
+    <tns:Faktor>0.1</tns:Faktor>
+  </tns:Reduktionsfaktor>
+</tns:Aldersinverkan_root>

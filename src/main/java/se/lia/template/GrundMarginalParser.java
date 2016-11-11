@@ -1,6 +1,8 @@
 package se.lia.template;
 
 import java.io.File;
+import java.util.ArrayList;
+
 import org.apache.xmlbeans.XmlException;
 import org.example.grundMarginal.GoMDocDocument;
 import org.example.grundMarginal.GoMDocDocument.GoMDoc;
@@ -11,7 +13,7 @@ import se.lia.persistence.GrundOchMarginalEntityDAO;
 
 
 
-public class GrundMarginalParser extends ParserFactory
+public class GrundMarginalParser extends Parser
 {
 	File schema;
 	GrundOchMarginalEntityDAO dao;
@@ -22,11 +24,21 @@ public class GrundMarginalParser extends ParserFactory
 		dao = GrundOchMarginalEntityDAO.getInstance();
 	}
 	
-	public void buildEntity(File xml)
+	/**
+	 * Skapar och sparar entiteter
+	 * @param xml Filnamn till alla filer  med GrundOchMarginal objekt
+	 */
+	public void parse(ArrayList<String> fileNames)
 	{
-		GrundOchMarginalEntity e = makeEntity(xml);
-		dao.save(e);
-		
+		for(String s: fileNames)
+		{
+			File f = new File("XMLUnderlag/" + s);
+			GrundOchMarginalEntity e = makeEntity(f);
+			if(e != null)
+			{
+				dao.save(e);
+			}
+		}
 	}
 	
 	private GoMDocDocument parseFile(File xml)
@@ -47,10 +59,10 @@ public class GrundMarginalParser extends ParserFactory
 	
 	/**
 	 * Validerar och parsar en xml-fil med GrundOchMarginal objekt och returnerar
-	 * en array med dessa objekt om xml fil är valid, returnerar annars null.
+	 * en Entity om filen är valid, returnerar annars null
 	 * 
-	 * @param xml Xml-fil som innehåller 1..n GrundOchMarginal Objekt
-	 * @return 	  En array av GrundOchMarginalEntity Objekt
+	 * @param xml Xml-fil som innehåller 1 GrundOchMarginal Objekt
+	 * @return 	  Ett GrundOchMarginalEntity Objekt
 	 */
 	public GrundOchMarginalEntity makeEntity(File xml)
 	{
@@ -63,17 +75,16 @@ public class GrundMarginalParser extends ParserFactory
 		if(gmDoc != null)
 		{
 			GoMDoc gom = gmDoc.getGoMDoc();
-			gmDoc = null;
 			GrundOchMarginal gm = gom.getGrundOchMarginal();
 			e = new GrundOchMarginalEntity();
 			
-			long[] nfug = new long[gm.getNivaFaktorArray().length];
-			long[] nfog = new long[gm.getNivaFaktorArray().length];
+			double[] nfug = new double[gm.getNivaFaktorArray().length];
+			double[] nfog = new double[gm.getNivaFaktorArray().length];
 			
 			for(int i = 0; i < nfug.length; i++)				
 			{
-				nfug[i] = gm.getNivaFaktorArray(i).xgetUndreGrans().getBigDecimalValue().longValue();
-				nfog[i] = gm.getNivaFaktorArray(i).xgetOvreGrans().getBigDecimalValue().longValue();
+				nfug[i] = gm.getNivaFaktorArray(i).xgetUndreGrans().getBigDecimalValue().doubleValue();
+				nfog[i] = gm.getNivaFaktorArray(i).xgetOvreGrans().getBigDecimalValue().doubleValue();
 			}
 			
 			int[] spug = new int[gm.getStandardPoangArray().length];

@@ -14,9 +14,10 @@ import se.lia.model.GrundOchMarginalEntity;
 
 public class GrundOchMarginalEntityDAOTest 
 {
-	/*private GrundOchMarginalEntityDAO dao;
-	private GrundOchMarginalEntity[] eArr;
+	private GrundOchMarginalEntityDAO dao;
 	private GrundOchMarginalEntity e;
+	private GrundOchMarginalEntity eMulti;
+	private double[] testMultiDouble;
 	
 	@Before
 	public void setup()
@@ -29,8 +30,10 @@ public class GrundOchMarginalEntityDAOTest
 		em.getTransaction().commit();
 		
 		GrundMarginalParser g = new GrundMarginalParser();
-		eArr = g.makeEntity(new File("schema/GrundMarginal.xml"));
-		e = eArr[0];
+		e = g.makeEntity(new File("XMLUnderlag/GrundMarginal.xml"));
+		eMulti = g.makeEntity(new File("XMLUnderlag/GrundMarginalMultiValues.xml"));
+		testMultiDouble = new double[] {2.2, 3.3};
+
 	}
 	
 	
@@ -45,27 +48,22 @@ public class GrundOchMarginalEntityDAOTest
 	public void testRead()
 	{
 		dao.save(e);
-		
 		GrundOchMarginalEntity ent = dao.getById(e.getId());
 		Assert.assertTrue(ent != null);
-		Assert.assertArrayEquals(e.getNf(), ent.getNf());
-		Assert.assertEquals("2001", ent.getFta().getStringValue());
+		Assert.assertArrayEquals(e.getStandardPoangOvreGrans(), ent.getStandardPoangOvreGrans());
+		Assert.assertEquals(2001, ent.getFastighetsTaxeringsAr());
 	}
 	
 	@Test
-	public void testValidation()
+	public void testMultiValueEntity()
 	{
-		GrundMarginalParser gp = new GrundMarginalParser();
+		dao.save(eMulti);
+		GrundOchMarginalEntity ent = dao.getById(eMulti.getId());
+		Assert.assertNotNull(eMulti.getId());
 		
-		GrundOchMarginalEntity[] iEntity, vEntity;
-		iEntity = gp.makeEntity(new File("schema/GrundMarginalInvalid.xml"));
-		vEntity = gp.makeEntity(new File("schema/GrundMarginal.xml"));
+		Assert.assertArrayEquals(testMultiDouble, ent.getNivaFaktorUndreGrans(), 0.01);
+		Assert.assertEquals(2002, ent.getFastighetsTaxeringsAr());
 		
-		Assert.assertTrue(iEntity == null);
-		Assert.assertTrue(vEntity != null);
-	}*/
+	}
 	
-	
-	
-
 }

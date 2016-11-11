@@ -3,51 +3,61 @@ package se.lia.template;
 
 import java.io.File;
 
-import javax.persistence.EntityManager;
-
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-
 import se.lia.model.GrundOchMarginalEntity;
-import se.lia.persistence.DBManager;
+
 
 public class GrundOchMarginalParserTest 
 {
-	/*private GrundMarginalParser grundmarginalparser;
+	private GrundMarginalParser grundmarginalparser;
+	private File xml, xmlMulti, xmlInvalid, xsd;
+	private double[] testDouble, testMultiDouble;
 	
 	@Before
 	public void setup()
 	{
-		EntityManager em = DBManager.getEntityManager();
-		em.getTransaction().begin();
-		em.createQuery("DELETE FROM PrimitiveGrundOchMarginalEntity e").executeUpdate();
-		em.getTransaction().commit();
+		testDouble = new double[] {1.1};
+		testMultiDouble = new double[] {2.2, 3.3};
+		xml = new File("XMLUnderlag/GrundMarginal.xml");
+		xmlMulti = new File("XMLUnderlag/GrundMarginalMultiValues.xml");
+		xsd = new File("schema/GrundMarginal.xsd");
+		xmlInvalid = new File("XMLUnderlag/GrundMarginalInvalid");
 		grundmarginalparser = new GrundMarginalParser();
 	}
 	
 	@Test
-	public void testValidation()
+	public void testEntity()
 	{
-		GrundOchMarginalEntity[] iEntity, vEntity;
-		iEntity = grundmarginalparser.makeEntity(new File("XMLUnderlag/GrundMarginalInvalid.xml"));
-		vEntity = grundmarginalparser.makeEntity(new File("XMLUnderlag/GrundMarginal.xml"));
-		
-		Assert.assertTrue(iEntity == null);
-		Assert.assertTrue(vEntity != null);
+		GrundOchMarginalEntity e = grundmarginalparser.makeEntity(xml);
+		Assert.assertEquals(2001, e.getFastighetsTaxeringsAr());
+		Assert.assertArrayEquals(testDouble, e.getNivaFaktorUndreGrans(), 0.01);
 	}
 	
 	@Test
-	public void testPrimitiveEntity()
+	public void testMultiValueEntity()
 	{
-		GrundOchMarginalEntity[] e = grundmarginalparser.makeEntity(new File("XMLUnderlag/GrundMarginal.xml"));
-		PrimitiveGrundOchMarginalEntity p = grundmarginalparser.buildEntity(e[0]);
-		
-		Assert.assertEquals(e[0].getFta().getIntValue(), p.getFastighetsTaxeringsAr());
-		Assert.assertEquals(e[0].getNf()[0].getUndreGrans().doubleValue(), p.getNivaFaktorUndreGrans()[0], 0.01);
-		Assert.assertEquals(e[0].getId(), p.getId());
-		Assert.assertEquals(e[0].getSp()[0].getOvreGrans(), p.getStandardPoangOvreGrans()[0]);
-	}*/
+		GrundOchMarginalEntity e = grundmarginalparser.makeEntity(xmlMulti);
+		Assert.assertEquals(2002, e.getFastighetsTaxeringsAr());
+		Assert.assertArrayEquals(testMultiDouble, e.getNivaFaktorUndreGrans(), 0.01);
+		Assert.assertEquals(4000, e.getGrundVarde());
+	}
+	
+	@Test
+	public void testValidate()
+	{
+		Assert.assertTrue(grundmarginalparser.validate(xml, xsd));
+		Assert.assertFalse(grundmarginalparser.validate(xmlInvalid, xsd));
+	}
+	
+	@Test
+	public void testReadFile()
+	{
+		Assert.assertNotNull(grundmarginalparser.readFileToString(xml));
+	}
+	
+	
 
 
 }
