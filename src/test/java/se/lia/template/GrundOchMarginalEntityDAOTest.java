@@ -30,8 +30,8 @@ public class GrundOchMarginalEntityDAOTest
 		em.getTransaction().commit();
 		
 		GrundMarginalParser g = new GrundMarginalParser();
-		e = g.makeEntity(new File("XMLUnderlag/GrundMarginal.xml"));
-		eMulti = g.makeEntity(new File("XMLUnderlag/GrundMarginalMultiValues.xml"));
+		e = g.makeEntity(new File("XMLUnderlag/GrundOchMarginal.xml"));
+		eMulti = g.makeEntity(new File("XMLUnderlag/GrundOchMarginalMulti.xml"));
 		testMultiDouble = new double[] {2.2, 3.3};
 
 	}

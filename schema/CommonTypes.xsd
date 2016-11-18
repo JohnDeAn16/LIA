@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"
+targetNamespace="DataImport"
+xmlns="DataImport"
+elementFormDefault="qualified" >
+
+	<xs:simpleType name="fastighetsTaxeringsArType">
+		<xs:restriction base="xs:gYear">
+		</xs:restriction>
+	</xs:simpleType>
+	
+	
+	<xs:complexType name="metaDataType">
+		<xs:sequence>
+			<xs:element name="AnkomstDatum" type="xs:date" />
+			<xs:element name="TidsStampel" type="xs:time" />
+			<xs:element name="TotalLaddning" type="xs:boolean" />
+			<xs:element name="FilTyp">
+				<xs:simpleType>
+					<xs:restriction base="xs:string">
+						<xs:enumeration value="GRUNDOCHMARGINAL" />
+						<xs:enumeration value="ALDERSINVERKAN" />
+						<!--  -->
+					</xs:restriction>
+				</xs:simpleType>
+			</xs:element>
+		</xs:sequence>
+	</xs:complexType>
+	
+	
+	
+</xs:schema>

@@ -1,18 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<tns:Aldersinverkan_root xmlns:tns="http://www.example.org/Underlag" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.example.org/Underlag ../schema/AldersInverkan.xsd ">
-  <tns:Fastighetstaxeringsar>2001</tns:Fastighetstaxeringsar>
-  <tns:Aldersinverkan>
-    <tns:Procent>65</tns:Procent>
-  </tns:Aldersinverkan>
-  <tns:Vardear>
-    <tns:Undregrans>2001</tns:Undregrans>
-    <tns:Ovregrans>2001</tns:Ovregrans>
-  </tns:Vardear>
-  <tns:Standardpoang>
-    <tns:Undregrans>0</tns:Undregrans>
-    <tns:Ovregrans>8</tns:Ovregrans>
-  </tns:Standardpoang>
-  <tns:Reduktionsfaktor>
-    <tns:Faktor>0.1</tns:Faktor>
-  </tns:Reduktionsfaktor>
-</tns:Aldersinverkan_root>
+<p:Formular xmlns:p="DataImport" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="DataImport ../schema/FormularSchema.xsd ">
+  <p:AnkomstDatum>2001-01-01</p:AnkomstDatum>
+  <p:TidsStampel>12:00:00</p:TidsStampel>
+  <p:TotalLaddning>true</p:TotalLaddning>
+  <p:FilTyp>ALDERSINVERKAN</p:FilTyp>
+  <p:AldersInverkan>
+  <p:Fastighetstaxeringsar>2001</p:Fastighetstaxeringsar>
+  <p:Aldersinverkan>
+    <p:Procent>65</p:Procent>
+  </p:Aldersinverkan>
+  <p:Vardear>
+    <p:Undregrans>1999</p:Undregrans>
+    <p:Ovregrans>1999</p:Ovregrans>
+  </p:Vardear>
+  <p:Standardpoang>
+    <p:Undregrans>56</p:Undregrans>
+    <p:Ovregrans>99</p:Ovregrans>
+  </p:Standardpoang>
+  <p:Reduktionsfaktor>
+    <p:Faktor>9.99</p:Faktor>
+  </p:Reduktionsfaktor>
+  </p:AldersInverkan>
+</p:Formular>

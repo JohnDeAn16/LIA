@@ -8,7 +8,8 @@ import org.junit.runners.Suite.SuiteClasses;
 @SuiteClasses({ DocParserTest.class,
 				GrundOchMarginalParserTest.class,
 				GrundOchMarginalEntityDAOTest.class, 
-				ParserFactoryTest.class})
+				ParserFactoryTest.class,
+				ParserTest.class})
 public class AllTests 
 {
 	

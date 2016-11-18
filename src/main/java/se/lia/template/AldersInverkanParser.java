@@ -1,46 +1,44 @@
 package se.lia.template;
 
 import java.io.File;
-import java.util.ArrayList;
 
 import org.apache.xmlbeans.XmlException;
-import org.example.underlag.AldersinverkanRootDocument;
-import org.example.underlag.AldersinverkanRootDocument.AldersinverkanRoot;
 
+import dataImport.AldersInverkanType;
+import dataImport.FormularDocument;
 import se.lia.model.AldersInverkanEntity;
 import se.lia.persistence.AldersInverkanEntityDAO;
 
 public class AldersInverkanParser extends Parser
 {
-	File schema;
 	AldersInverkanEntityDAO dao;
+	
 	
 	public AldersInverkanParser()
 	{
-		this.schema = new File("schema/AldersInverkan.xsd");
 		dao = AldersInverkanEntityDAO.getInstance();
 	}
 	
-	public void parse(ArrayList<String> fileNames)
+	public void parse(File f)
 	{
-		for(String s: fileNames)
+		AldersInverkanEntity e = null;
+		if(validate(f))
 		{
-			File f = new File("XMLUnderlag/" + s);
-			AldersInverkanEntity e = makeEntity(f);
-			if(e != null)
-			{
-				dao.save(e);
-			}
+			e = makeEntity(f);
+		}
+		if(e != null)
+		{
+			dao.save(e);
 		}
 	}
 	
-	private AldersinverkanRootDocument parseFile(File xml)
+	private AldersInverkanType parseFile(File xml)
 	{
-		AldersinverkanRootDocument aiDoc = null;
+		AldersInverkanType aiDoc = null;
 		String s = readFileToString(xml);
 		try
 		{
-			aiDoc = AldersinverkanRootDocument.Factory.parse(s);
+			aiDoc = FormularDocument.Factory.parse(s).getFormular().getAldersInverkan();
 		}
 		catch(XmlException e)
 		{
@@ -52,14 +50,10 @@ public class AldersInverkanParser extends Parser
 	public AldersInverkanEntity makeEntity(File xml)
 	{
 		AldersInverkanEntity e = null;
-		AldersinverkanRootDocument aiDoc = null;
-		if(validate(xml, schema))
+		AldersInverkanType ai = null;
+		ai = this.parseFile(xml);
+		if(ai != null)
 		{
-			aiDoc = this.parseFile(xml);
-		}
-		if(aiDoc != null)
-		{
-			AldersinverkanRoot ai = aiDoc.getAldersinverkanRoot();
 			e = new AldersInverkanEntity();
 			
 			int[] aip = new int[ai.getAldersinverkanArray().length];

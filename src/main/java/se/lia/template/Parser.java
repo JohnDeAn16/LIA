@@ -7,11 +7,10 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 
-import javax.xml.XMLConstants;
-import javax.xml.transform.stream.StreamSource;
-import javax.xml.validation.Schema;
-import javax.xml.validation.SchemaFactory;
-import javax.xml.validation.Validator;
+import org.apache.xmlbeans.XmlException;
+import org.apache.xmlbeans.XmlObject;
+import org.apache.xmlbeans.XmlOptions;
+import org.apache.xmlbeans.XmlValidationError;
 
 public abstract class Parser
 {
@@ -19,11 +18,32 @@ public abstract class Parser
 	
 	/**
 	 * Validerar xml fil mot schema
-	 * @param xml Xml fil som skall valideras
-	 * @param xsd Schema den skall valideras mot
+	 * @param f Xml fil som skall valideras
 	 * @return Returnerar sant om filerna validerar, annars falskt
 	 */
-	public boolean validate(File xml, File xsd)
+	public boolean validate(File f)
+	{
+		boolean valid = true;
+		XmlOptions opts = new XmlOptions();
+		ArrayList<XmlValidationError> valErrors = new ArrayList<XmlValidationError>();
+		opts.setErrorListener(valErrors);
+		
+		try 
+		{
+			XmlObject x = XmlObject.Factory.parse(f);
+			if(!x.validate(opts))
+			{
+				valid = false;
+				System.out.println(valErrors);
+			}
+		} 
+		catch (XmlException | IOException e) 
+		{
+			e.printStackTrace();
+		}
+		return valid;
+	}
+	/*public boolean validate(File xml, File xsd)
 	{
 		try 
 		{
@@ -42,7 +62,7 @@ public abstract class Parser
 		{
 			return false;
 		}
-	}
+	}*/
 	
 	/**
 	 * Läser in en fil och sparar den i en string
@@ -74,7 +94,7 @@ public abstract class Parser
 	}
 
 
-	public void parse(ArrayList<String> s) 
+	public void parse(File f) 
 	{
 		// TODO Auto-generated method stub
 		

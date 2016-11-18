@@ -1,12 +1,10 @@
 package se.lia.template;
 
 import java.io.File;
-import java.util.ArrayList;
 
 import org.apache.xmlbeans.XmlException;
-import org.example.grundMarginal.GoMDocDocument;
-import org.example.grundMarginal.GoMDocDocument.GoMDoc;
-import org.example.grundMarginal.GoMDocDocument.GoMDoc.GrundOchMarginal;
+import dataImport.FormularDocument;
+import dataImport.GrundOchMarginalType;
 
 import se.lia.model.GrundOchMarginalEntity;
 import se.lia.persistence.GrundOchMarginalEntityDAO;
@@ -15,39 +13,37 @@ import se.lia.persistence.GrundOchMarginalEntityDAO;
 
 public class GrundMarginalParser extends Parser
 {
-	File schema;
 	GrundOchMarginalEntityDAO dao;
 	
 	public GrundMarginalParser()
 	{
-		this.schema = new File("schema/GrundMarginal.xsd");
 		dao = GrundOchMarginalEntityDAO.getInstance();
 	}
 	
 	/**
 	 * Skapar och sparar entiteter
-	 * @param xml Filnamn till alla filer  med GrundOchMarginal objekt
+	 * @param xml Fil med GrundOchMarginal objekt
 	 */
-	public void parse(ArrayList<String> fileNames)
+	public void parse(File f)
 	{
-		for(String s: fileNames)
+		GrundOchMarginalEntity e = null;
+		if(validate(f))
 		{
-			File f = new File("XMLUnderlag/" + s);
-			GrundOchMarginalEntity e = makeEntity(f);
-			if(e != null)
-			{
-				dao.save(e);
-			}
+			e = makeEntity(f);
+		}
+		if(e != null)
+		{
+			dao.save(e);
 		}
 	}
 	
-	private GoMDocDocument parseFile(File xml)
+	private GrundOchMarginalType parseFile(File xml)
 	{
-		GoMDocDocument gmDoc = null;
+		GrundOchMarginalType gmDoc = null;
 		String s = readFileToString(xml);
 		try
 		{
-			gmDoc = GoMDocDocument.Factory.parse(s);
+			gmDoc = FormularDocument.Factory.parse(s).getFormular().getGrundOchMarginal();
 		}
 		catch(XmlException e)
 		{
@@ -58,7 +54,7 @@ public class GrundMarginalParser extends Parser
 	
 	
 	/**
-	 * Validerar och parsar en xml-fil med GrundOchMarginal objekt och returnerar
+	 * Parsar en xml-fil med GrundOchMarginal objekt och returnerar
 	 * en Entity om filen är valid, returnerar annars null
 	 * 
 	 * @param xml Xml-fil som innehåller 1 GrundOchMarginal Objekt
@@ -67,15 +63,10 @@ public class GrundMarginalParser extends Parser
 	public GrundOchMarginalEntity makeEntity(File xml)
 	{
 		GrundOchMarginalEntity e = null;
-		GoMDocDocument gmDoc = null;
-		if(validate(xml, schema))
+		GrundOchMarginalType gm = null;
+		gm = this.parseFile(xml);
+		if(gm != null)
 		{
-			gmDoc = this.parseFile(xml);
-		}
-		if(gmDoc != null)
-		{
-			GoMDoc gom = gmDoc.getGoMDoc();
-			GrundOchMarginal gm = gom.getGrundOchMarginal();
 			e = new GrundOchMarginalEntity();
 			
 			double[] nfug = new double[gm.getNivaFaktorArray().length];

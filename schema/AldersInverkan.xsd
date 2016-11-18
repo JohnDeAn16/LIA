@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	targetNamespace="DataImport" xmlns="DataImport" elementFormDefault="qualified">
+	<xsd:include schemaLocation="CommonTypes.xsd" />
+
+	<xsd:complexType name="AldersInverkanType">
+		<xsd:sequence>
+			<xsd:element name="Fastighetstaxeringsar" type="fastighetsTaxeringsArType" />
+			<xsd:element name="Aldersinverkan" minOccurs="1"
+				maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Procent">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:int">
+									<xsd:enumeration value="65" />
+									<xsd:enumeration value="75" />
+									<xsd:enumeration value="80" />
+									<xsd:enumeration value="85" />
+									<xsd:enumeration value="90" />
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Vardear" minOccurs="1" maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Undregrans">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:gYear">
+									<xsd:minInclusive value="1929" />
+									<xsd:maxInclusive value="9999" />
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="Ovregrans">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:gYear">
+									<xsd:minInclusive value="1939" />
+									<xsd:maxInclusive value="9999" />
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Standardpoang" minOccurs="1"
+				maxOccurs="unbounded">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Undregrans">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:int">
+									<xsd:minInclusive value="0" />
+									<xsd:maxInclusive value="56" />
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+						<xsd:element name="Ovregrans">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:int">
+									<xsd:minInclusive value="8" />
+									<xsd:maxInclusive value="99" />
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+			<xsd:element name="Reduktionsfaktor">
+				<xsd:complexType>
+					<xsd:sequence>
+						<xsd:element name="Faktor">
+							<xsd:simpleType>
+								<xsd:restriction base="xsd:decimal">
+									<xsd:minInclusive value="0.01" />
+									<xsd:maxInclusive value="9.99" />
+								</xsd:restriction>
+							</xsd:simpleType>
+						</xsd:element>
+					</xsd:sequence>
+				</xsd:complexType>
+			</xsd:element>
+		</xsd:sequence>
+
+
+	</xsd:complexType>
+
+</xsd:schema>
