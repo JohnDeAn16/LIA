@@ -6,6 +6,10 @@ import java.io.File;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
+
+import se.lia.datafangst.GrundMarginalParser;
+import se.lia.datafangst.ParserFactory;
+import se.lia.exceptions.DataFangstException;
 import se.lia.model.GrundOchMarginalEntity;
 
 
@@ -16,25 +20,19 @@ public class GrundOchMarginalParserTest
 	private double[] testDouble;
 	
 	@Before
-	public void setup()
+	public void setup() throws DataFangstException
 	{
 		testDouble = new double[] {1.1};
 		xml = new File("XMLUnderlag/GrundOchMarginal.xml");
-		grundmarginalparser = new GrundMarginalParser();
+		grundmarginalparser = (GrundMarginalParser)ParserFactory.getParser(xml);
 	}
 	
 	@Test
 	public void testEntity()
 	{
-		GrundOchMarginalEntity e = grundmarginalparser.makeEntity(xml);
+		GrundOchMarginalEntity e = grundmarginalparser.makeEntity();
 		Assert.assertEquals(2001, e.getFastighetsTaxeringsAr());
 		Assert.assertArrayEquals(testDouble, e.getNivaFaktorUndreGrans(), 0.01);
-	}
-	
-	@Test
-	public void testReadFile()
-	{
-		Assert.assertNotNull(grundmarginalparser.readFileToString(xml));
 	}
 	
 	

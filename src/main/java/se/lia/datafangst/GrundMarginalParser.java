@@ -1,8 +1,7 @@
-package se.lia.template;
+package se.lia.datafangst;
 
-import java.io.File;
+import org.apache.xmlbeans.XmlObject;
 
-import org.apache.xmlbeans.XmlException;
 import dataImport.FormularDocument;
 import dataImport.GrundOchMarginalType;
 
@@ -14,57 +13,35 @@ import se.lia.persistence.GrundOchMarginalEntityDAO;
 public class GrundMarginalParser extends Parser
 {
 	GrundOchMarginalEntityDAO dao;
+	XmlObject x;
 	
-	public GrundMarginalParser()
+	public GrundMarginalParser(XmlObject x)
 	{
 		dao = GrundOchMarginalEntityDAO.getInstance();
+		this.x = x;
 	}
 	
 	/**
 	 * Skapar och sparar entiteter
 	 * @param xml Fil med GrundOchMarginal objekt
 	 */
-	public void parse(File f)
+	public void saveEntity()
 	{
 		GrundOchMarginalEntity e = null;
-		if(validate(f))
+		if(x != null)
 		{
-			e = makeEntity(f);
-		}
-		if(e != null)
-		{
+			e = makeEntity();
 			dao.save(e);
 		}
 	}
 	
-	private GrundOchMarginalType parseFile(File xml)
-	{
-		GrundOchMarginalType gmDoc = null;
-		String s = readFileToString(xml);
-		try
-		{
-			gmDoc = FormularDocument.Factory.parse(s).getFormular().getGrundOchMarginal();
-		}
-		catch(XmlException e)
-		{
-			e.printStackTrace();
-		}
-		return gmDoc;
-	}
 	
-	
-	/**
-	 * Parsar en xml-fil med GrundOchMarginal objekt och returnerar
-	 * en Entity om filen är valid, returnerar annars null
-	 * 
-	 * @param xml Xml-fil som innehåller 1 GrundOchMarginal Objekt
-	 * @return 	  Ett GrundOchMarginalEntity Objekt
-	 */
-	public GrundOchMarginalEntity makeEntity(File xml)
+	public GrundOchMarginalEntity makeEntity()
 	{
 		GrundOchMarginalEntity e = null;
 		GrundOchMarginalType gm = null;
-		gm = this.parseFile(xml);
+		FormularDocument f = (FormularDocument) x;
+		gm = f.getFormular().getGrundOchMarginal();
 		if(gm != null)
 		{
 			e = new GrundOchMarginalEntity();

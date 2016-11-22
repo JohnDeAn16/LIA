@@ -7,29 +7,52 @@ import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
+import se.lia.datafangst.Parser;
+import se.lia.exceptions.DataFangstException;
+
 
 public class ParserTest 
 {
-	private Parser p;
-	private File valid, invalid;
+	private File valid, invalid, text;
 	
 	@Before
 	public void setUp()
 	{
-		p = new GrundMarginalParser();
 		valid = new File("XMLUnderlag/GrundOchMarginal.xml");
 		invalid = new File("XMLUnderlag/GrundOchMarginalInvalid.xml");
-	}
-
-	@Test
-	public void validTest() 
-	{
-		Assert.assertTrue(p.validate(valid));
+		text = new File("XMLUnderlag/Hello.txt");
 	}
 	
 	@Test
-	public void invalidTest()
+	public void testValid() throws DataFangstException
 	{
-		Assert.assertFalse(p.validate(invalid));
+		Assert.assertNotNull(Parser.getValidXmlObject(valid));
+	}
+	
+	@Test
+	public void testInvalid()
+	{
+		try
+		{
+			Parser.getValidXmlObject(invalid);
+		}
+		catch(DataFangstException e)
+		{
+			Assert.assertEquals(2, e.getErrorCode());
+		}
+	}
+	
+	@Test
+	public void testInvalidFileType()
+	{
+		try
+		{
+			Parser.getValidXmlObject(text);
+		}
+		catch(DataFangstException e)
+		{
+			Assert.assertEquals(1, e.getErrorCode());
+			Assert.assertNotEquals(2,  e.getErrorCode());
+		}
 	}
 }

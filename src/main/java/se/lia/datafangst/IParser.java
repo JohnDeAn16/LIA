@@ -1,4 +1,4 @@
-package se.lia.template;
+package se.lia.datafangst;
 
 
 

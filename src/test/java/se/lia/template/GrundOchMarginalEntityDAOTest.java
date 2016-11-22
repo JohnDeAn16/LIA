@@ -10,6 +10,9 @@ import org.junit.Assert;
 
 import se.lia.persistence.DBManager;
 import se.lia.persistence.GrundOchMarginalEntityDAO;
+import se.lia.datafangst.GrundMarginalParser;
+import se.lia.datafangst.ParserFactory;
+import se.lia.exceptions.DataFangstException;
 import se.lia.model.GrundOchMarginalEntity;
 
 public class GrundOchMarginalEntityDAOTest 
@@ -17,10 +20,11 @@ public class GrundOchMarginalEntityDAOTest
 	private GrundOchMarginalEntityDAO dao;
 	private GrundOchMarginalEntity e;
 	private GrundOchMarginalEntity eMulti;
+	GrundMarginalParser g;
 	private double[] testMultiDouble;
 	
 	@Before
-	public void setup()
+	public void setup() throws DataFangstException
 	{
 		dao = GrundOchMarginalEntityDAO.getInstance();
 		
@@ -29,9 +33,11 @@ public class GrundOchMarginalEntityDAOTest
 		em.createQuery("DELETE FROM GrundOchMarginalEntity e").executeUpdate();
 		em.getTransaction().commit();
 		
-		GrundMarginalParser g = new GrundMarginalParser();
-		e = g.makeEntity(new File("XMLUnderlag/GrundOchMarginal.xml"));
-		eMulti = g.makeEntity(new File("XMLUnderlag/GrundOchMarginalMulti.xml"));
+		g = (GrundMarginalParser)ParserFactory.getParser(new File("XMLUnderlag/GrundOchMarginal.xml"));
+		e = g.makeEntity();
+		
+		g = (GrundMarginalParser)ParserFactory.getParser(new File("XMLUnderlag/GrundOchMarginalMulti.xml"));
+		eMulti = g.makeEntity();
 		testMultiDouble = new double[] {2.2, 3.3};
 
 	}

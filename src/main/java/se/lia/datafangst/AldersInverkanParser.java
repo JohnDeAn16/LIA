@@ -1,8 +1,6 @@
-package se.lia.template;
+package se.lia.datafangst;
 
-import java.io.File;
-
-import org.apache.xmlbeans.XmlException;
+import org.apache.xmlbeans.XmlObject;
 
 import dataImport.AldersInverkanType;
 import dataImport.FormularDocument;
@@ -12,46 +10,30 @@ import se.lia.persistence.AldersInverkanEntityDAO;
 public class AldersInverkanParser extends Parser
 {
 	AldersInverkanEntityDAO dao;
+	XmlObject x;
 	
-	
-	public AldersInverkanParser()
+	public AldersInverkanParser(XmlObject x)
 	{
 		dao = AldersInverkanEntityDAO.getInstance();
+		this.x = x;
 	}
 	
-	public void parse(File f)
+	public void saveEntity()
 	{
 		AldersInverkanEntity e = null;
-		if(validate(f))
+		if(x != null)
 		{
-			e = makeEntity(f);
-		}
-		if(e != null)
-		{
+			e = makeEntity();
 			dao.save(e);
 		}
 	}
 	
-	private AldersInverkanType parseFile(File xml)
-	{
-		AldersInverkanType aiDoc = null;
-		String s = readFileToString(xml);
-		try
-		{
-			aiDoc = FormularDocument.Factory.parse(s).getFormular().getAldersInverkan();
-		}
-		catch(XmlException e)
-		{
-			e.printStackTrace();
-		}
-		return aiDoc;
-	}
-	
-	public AldersInverkanEntity makeEntity(File xml)
+	public AldersInverkanEntity makeEntity()
 	{
 		AldersInverkanEntity e = null;
 		AldersInverkanType ai = null;
-		ai = this.parseFile(xml);
+		FormularDocument f = (FormularDocument) x;
+		ai = f.getFormular().getAldersInverkan();
 		if(ai != null)
 		{
 			e = new AldersInverkanEntity();
