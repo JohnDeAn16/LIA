@@ -1,73 +1,73 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
-<xs:schema xmlns="DataImport" targetNamespace="DataImport"
-	elementFormDefault="qualified" xmlns:xs="http://www.w3.org/2001/XMLSchema">
-	<xs:include schemaLocation="CommonTypes.xsd" />
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<xs:schema xmlns="DataImport" xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="DataImport">
+	<xs:include schemaLocation="CommonTypes.xsd"/>
 
 
 	<xs:complexType name="GrundOchMarginalType">
 		<xs:sequence>
-			<xs:element name="fastighetsTaxeringsAr" type="fastighetsTaxeringsArType" />
-			<xs:element name="nivaFaktor" minOccurs="1" maxOccurs="unbounded">
+			<xs:element name="fastighetsTaxeringsAr" type="fastighetsTaxeringsArType"/>
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="nivaFaktor">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="undreGrans">
 							<xs:simpleType>
 								<xs:restriction base="xs:decimal">
-									<xs:minInclusive value="1.1" />
-									<xs:maxInclusive value="99.9" />
+									<xs:minInclusive value="1.1"/>
+									<xs:maxInclusive value="99.9"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
 						<xs:element name="ovreGrans">
 							<xs:simpleType>
 								<xs:restriction base="xs:decimal">
-									<xs:minInclusive value="1.1" />
-									<xs:maxInclusive value="99.9" />
+									<xs:minInclusive value="1.1"/>
+									<xs:maxInclusive value="99.9"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
+						
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="standardPoang" minOccurs="1" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="standardPoang">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="undreGrans">
 							<xs:simpleType>
 								<xs:restriction base="xs:int">
-									<xs:minInclusive value="0" />
-									<xs:maxInclusive value="65" />
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="65"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
 						<xs:element name="ovreGrans">
 							<xs:simpleType>
 								<xs:restriction base="xs:int">
-									<xs:minInclusive value="1" />
-									<xs:maxInclusive value="68" />
+									<xs:minInclusive value="1"/>
+									<xs:maxInclusive value="68"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
+						
 					</xs:sequence>
 				</xs:complexType>
 			</xs:element>
-			<xs:element name="vardeYta" minOccurs="1" maxOccurs="unbounded">
+			<xs:element maxOccurs="unbounded" minOccurs="1" name="vardeYta">
 				<xs:complexType>
 					<xs:sequence>
 						<xs:element name="undreGrans">
 							<xs:simpleType>
 								<xs:restriction base="xs:int">
-									<xs:minInclusive value="0" />
-									<xs:maxInclusive value="251" />
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="251"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
 						<xs:element name="ovreGrans">
 							<xs:simpleType>
 								<xs:restriction base="xs:int">
-									<xs:minInclusive value="75" />
-									<xs:maxInclusive value="9999" />
+									<xs:minInclusive value="75"/>
+									<xs:maxInclusive value="9999"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
@@ -80,16 +80,16 @@
 						<xs:element name="grundVarde">
 							<xs:simpleType>
 								<xs:restriction base="xs:int">
-									<xs:minInclusive value="1000" />
-									<xs:maxInclusive value="999999" />
+									<xs:minInclusive value="1000"/>
+									<xs:maxInclusive value="999999"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>
 						<xs:element name="marginalVarde">
 							<xs:simpleType>
 								<xs:restriction base="xs:int">
-									<xs:minInclusive value="0" />
-									<xs:maxInclusive value="9999" />
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="9999"/>
 								</xs:restriction>
 							</xs:simpleType>
 						</xs:element>

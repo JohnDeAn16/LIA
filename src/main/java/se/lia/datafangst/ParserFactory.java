@@ -4,11 +4,11 @@ import java.io.File;
 
 import org.apache.xmlbeans.XmlObject;
 
-import se.lia.exceptions.DataFangstException;
+import se.lia.exceptions.DataImportException;
 
 public class ParserFactory 
 {
-	public static Parser getParser(File f) throws DataFangstException 
+	public static Parser getParser(File f) throws DataImportException 
 	{
 		XmlObject x = Parser.getValidXmlObject(f);
 

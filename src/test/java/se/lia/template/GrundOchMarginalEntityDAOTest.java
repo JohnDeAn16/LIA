@@ -12,7 +12,7 @@ import se.lia.persistence.DBManager;
 import se.lia.persistence.GrundOchMarginalEntityDAO;
 import se.lia.datafangst.GrundMarginalParser;
 import se.lia.datafangst.ParserFactory;
-import se.lia.exceptions.DataFangstException;
+import se.lia.exceptions.DataImportException;
 import se.lia.model.GrundOchMarginalEntity;
 
 public class GrundOchMarginalEntityDAOTest 
@@ -24,7 +24,7 @@ public class GrundOchMarginalEntityDAOTest
 	private double[] testMultiDouble;
 	
 	@Before
-	public void setup() throws DataFangstException
+	public void setup() throws DataImportException
 	{
 		dao = GrundOchMarginalEntityDAO.getInstance();
 		
@@ -47,7 +47,19 @@ public class GrundOchMarginalEntityDAOTest
 	public void testSave()
 	{
 		dao.save(e);
-		Assert.assertTrue(e.getId() != null);
+		Assert.assertNotNull(e.getId());
+	}
+	
+	@Test
+	public void testMerge()
+	{
+		dao.save(e);
+		
+		e.setFastighetsTaxeringsAr(2002);
+		dao.save(e);
+		GrundOchMarginalEntity mE = dao.getById(e.getId());
+		Assert.assertEquals(2002, mE.getFastighetsTaxeringsAr());
+		
 	}
 	
 	@Test
@@ -55,9 +67,17 @@ public class GrundOchMarginalEntityDAOTest
 	{
 		dao.save(e);
 		GrundOchMarginalEntity ent = dao.getById(e.getId());
-		Assert.assertTrue(ent != null);
+		Assert.assertNotNull(ent);
 		Assert.assertArrayEquals(e.getStandardPoangOvreGrans(), ent.getStandardPoangOvreGrans());
-		Assert.assertEquals(2001, ent.getFastighetsTaxeringsAr());
+		Assert.assertArrayEquals(e.getStandardPoangUndreGrans(), ent.getStandardPoangUndreGrans());
+		Assert.assertArrayEquals(e.getNivaFaktorOvreGrans(), ent.getNivaFaktorOvreGrans(), 0.01);
+		Assert.assertArrayEquals(e.getNivaFaktorUndreGrans(), ent.getNivaFaktorUndreGrans(), 0.01);
+		Assert.assertArrayEquals(e.getVardeYtaOvreGrans(), ent.getVardeYtaOvreGrans());
+		Assert.assertArrayEquals(e.getVardeYtaUndreGrans(), ent.getVardeYtaUndreGrans());
+		Assert.assertEquals(e.getGrundVarde(), ent.getGrundVarde());
+		Assert.assertEquals(e.getMarginalVarde(), ent.getMarginalVarde());
+		Assert.assertEquals(e.getFastighetsTaxeringsAr(), ent.getFastighetsTaxeringsAr());
+		Assert.assertEquals(e.toString(), ent.toString());
 	}
 	
 	@Test

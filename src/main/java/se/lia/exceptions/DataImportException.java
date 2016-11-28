@@ -1,6 +1,6 @@
 package se.lia.exceptions;
 
-public class DataFangstException extends Exception
+public class DataImportException extends Exception
 {
 
 	/**
@@ -11,7 +11,7 @@ public class DataFangstException extends Exception
 	private int errorCode;
 	private ExceptionCode c;
 	
-	public DataFangstException(ExceptionCode c, String message)
+	public DataImportException(ExceptionCode c, String message)
 	{
 		this.message = message;
 		this.errorCode = c.getId();
@@ -22,7 +22,7 @@ public class DataFangstException extends Exception
 	@Override
 	public String getMessage()
 	{
-		String err = c.toString() + ": " + c.getMsg() + " " + message;
+		String err = c.toString() + ": " + c.getMsg() + ": " + message;
 		return err;
 	}
 	

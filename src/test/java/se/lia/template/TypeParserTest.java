@@ -7,29 +7,37 @@ import java.io.IOException;
 import org.apache.xmlbeans.XmlException;
 import org.apache.xmlbeans.XmlObject;
 import org.junit.Assert;
-import org.junit.Before;
-import org.junit.Test;
 
+import junit.framework.TestCase;
+import se.lia.datafangst.DataHandler;
 import se.lia.datafangst.FileType;
 import se.lia.datafangst.TypeParser;
+import se.lia.exceptions.DataImportException;
 
 
-public class TypeParserTest 
+public class TypeParserTest  extends TestCase
 {
 
 	XmlObject x;
 	
-	@Before
-	public void setup() throws XmlException, IOException
+	@Override
+	public void setUp() throws XmlException, IOException
 	{
 		File f = new File("XMLUnderlag/GrundOchMarginal.xml");
 		x = XmlObject.Factory.parse(f);
 	}
 	
-	@Test
+
+	
+
+
 	public void testGetFileType()
 	{
 		Assert.assertEquals(FileType.GRUNDOCHMARGINAL, TypeParser.getFileType(x));
+	}
+	public void testLia() throws DataImportException{
+		DataHandler dh = new DataHandler();
+		dh.parseAndSaveFiles("XMLUnderlag");
 	}
 
 

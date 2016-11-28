@@ -31,6 +31,12 @@ public class AldersInverkanParserTest {
 	{
 		Assert.assertEquals(2001, e.getFastighetsTaxeringsAr());
 	}
+	
+	@Test
+	public void testSaveEntity()
+	{
+		p.saveEntity();
+	}
 
 
 

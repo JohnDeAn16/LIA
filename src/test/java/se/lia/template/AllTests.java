@@ -11,7 +11,10 @@ import org.junit.runners.Suite.SuiteClasses;
 				ParserFactoryTest.class,
 				ParserTest.class, 
 				FileLoaderTest.class,
-				AldersInverkanParserTest.class})
+				AldersInverkanParserTest.class, 
+				AldersInverkanEntityDAOTest.class,
+				DataHandlerTest.class, 
+				MainTest.class})
 public class AllTests 
 {
 	

@@ -37,7 +37,7 @@ public class GrundOchMarginalEntityDAO
 		em.getTransaction().begin();
 		if(e.getId() != null)
 		{
-			return em.merge(e);
+			em.merge(e);
 		}
 		else
 		{

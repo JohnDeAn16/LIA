@@ -9,7 +9,7 @@ import org.apache.xmlbeans.XmlObject;
 import org.apache.xmlbeans.XmlOptions;
 import org.apache.xmlbeans.XmlValidationError;
 
-import se.lia.exceptions.DataFangstException;
+import se.lia.exceptions.DataImportException;
 import se.lia.exceptions.ExceptionCode;
 
 public abstract class Parser
@@ -19,9 +19,9 @@ public abstract class Parser
 	 * Validerar och returnerar ett xml object från fil
 	 * @param f File med xml data
 	 * @return x XmlObject 
-	 * @throws DataFangstException
+	 * @throws DataImportException
 	 */
-	public static XmlObject getValidXmlObject(File f) throws DataFangstException
+	public static XmlObject getValidXmlObject(File f) throws DataImportException
 	{
 		XmlObject x = null;
 	
@@ -35,7 +35,7 @@ public abstract class Parser
 		} 
 		catch (XmlException | IOException e) 
 		{
-			throw new DataFangstException(ExceptionCode.PARSER_ERROR, f.getName());
+			throw new DataImportException(ExceptionCode.PARSER_ERROR, f.getName());
 		}
 		return x;
 	}
@@ -44,9 +44,9 @@ public abstract class Parser
 	 * Validerar xml fil mot schema
 	 * @param x Xml objekt som skall valideras
 	 * @return Returnerar sant om filerna validerar, annars falskt
-	 * @throws DataFangstException 
+	 * @throws DataImportException 
 	 */
-	public static boolean validate(XmlObject x) throws DataFangstException
+	public static boolean validate(XmlObject x) throws DataImportException
 	{
 		boolean valid = true;
 		XmlOptions opts = new XmlOptions();
@@ -56,7 +56,7 @@ public abstract class Parser
 		if(!x.validate(opts))
 		{
 			valid = false;
-			throw new DataFangstException(ExceptionCode.VALIDATION_ERROR, valErrors.toString());
+			throw new DataImportException(ExceptionCode.VALIDATION_ERROR, valErrors.toString());
 			
 		}
 		return valid;
@@ -64,11 +64,7 @@ public abstract class Parser
 
 
 
-	public void saveEntity() 
-	{
-		// TODO Auto-generated method stub
-		
-	}
+	public abstract void saveEntity();
 
 
 }

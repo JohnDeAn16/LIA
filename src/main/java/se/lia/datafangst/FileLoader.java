@@ -6,9 +6,8 @@ import java.util.Arrays;
 
 public class FileLoader 
 {
-	public static ArrayList<File> getFiles(String directoryName)
+	public static ArrayList<File> getFiles(File dir)
 	{
-		File dir = new File(directoryName);
 		ArrayList<File> files = new ArrayList<File>(Arrays.asList(dir.listFiles()));
 		return files;
 	}

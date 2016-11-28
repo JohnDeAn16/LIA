@@ -21,4 +21,11 @@ public class TypeParser extends Parser
 		Formular m = f.getFormular();
 		return FileType.valueOf(m.getFilTyp().toString());
 	}
+
+	@Override
+	public void saveEntity() {
+		// TODO Auto-generated method stub
+		
+	}
+	
 }

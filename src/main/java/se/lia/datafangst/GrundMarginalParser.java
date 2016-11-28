@@ -4,7 +4,6 @@ import org.apache.xmlbeans.XmlObject;
 
 import dataImport.FormularDocument;
 import dataImport.GrundOchMarginalType;
-
 import se.lia.model.GrundOchMarginalEntity;
 import se.lia.persistence.GrundOchMarginalEntityDAO;
 
